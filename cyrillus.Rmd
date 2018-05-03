@@ -1,7 +1,7 @@
 ---
 title: "Cyrillus"
 author: "Ralph Rogge (RRO)"
-date: "5/03/2018"
+date: "05/03/2018"
 output: html_document
 ---
 
@@ -20,7 +20,6 @@ Crater center
 ```{r}
 center <- list(l = 24.07, b = -13.29)
 ```
-
 
 Function to convert degrees to rad.
 ```{r}
@@ -45,6 +44,8 @@ distance <- function(l1, b1, l2, b2, r=1738) {
 
 Function to read and preprocess height profile data from file
 ```{r}
+# file - File name or connection.
+# direction - (String) Tag to identify profile.
 read.profile <- function(file, direction) {
     raw <- read.csv(file, skip=4)
     df <- raw %>%
@@ -58,7 +59,7 @@ read.profile <- function(file, direction) {
 }
 ```
 
-Read height profile from file
+Read height profiles from file
 ```{r}
 profile.000_180 <- read.profile("input/profile_000-180.txt", direction="000-180")
 profile.090_270 <- read.profile("input/profile_090-270.txt", direction="090-270")
